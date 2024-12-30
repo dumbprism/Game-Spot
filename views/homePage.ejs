@@ -47,6 +47,10 @@
             display: flex;
             gap: 20px;
         }
+        .game-image{
+            display: flex;
+            gap: 20px;
+        }
     </style>
 </head>
 <body>
@@ -67,9 +71,14 @@
     </div>
 
     <h4>Games</h4>
+    <% if (typeof details !== 'undefined' && details.length > 0) { %>
 
     <div id="games">
-        <img src = <%=url%> alt = "game image">
+         <% details.forEach(detail => { %>
+            <div class="game-image">
+                <img src="<%= detail.url %>" alt="<%= detail.name %>">
+            <% }) %>
+        <% } %>
     </div>
 </body>
 </html>
