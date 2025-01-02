@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <form action="/productDisplay" method="post">
+
+        <label for="name">Product Name</label>
+        <input type="text" id="name" name="name">
+        <label for="type">Product Type</label>
+        <select name="type" id="type">
+            <option value="appliances">Appliances</option>
+            <option value="beauty">Beauty</option>
+            <option value="books">Books</option>
+            <option value="clothing">Clothing</option>
+            <option value="electronics">Electronics</option>
+            <option value="gift cards">Gift Cards</option>
+            <option value="jewellery">jewellery</option>
+            <option value="home and kitchen">Home and Kitchen</option>
+            <option value="toys">Toys</option>
+        </select>
+
+        <label for="price">Price</label>
+        <input type="number" min="0" max="100000" name="price" id="price">
+
+        <label for="company">Company</label>
+
+        <select name="company" id="company">
+            <option value="bajaj">Bajaj</option>
+            <option value="classmate">Classmate</option>
+        </select>
+
+        <button type="submit">Submit</button>
+        
+
+    </form>
+
+
+
+   
+
+</body>
+</html>
