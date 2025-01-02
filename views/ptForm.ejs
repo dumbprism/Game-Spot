@@ -9,14 +9,15 @@
 
     <form action="/" method="post">
 
-        <label for="product_type">Type</label>
+    <label for="product_type">Type</label>
     <input type="text" id="product_type" name="product_type">
 
     <button type="submit">Submit</button>
 
     </form>
-
+    
     <h1>Product Types</h1>
+
     <% if (typeof types !== 'undefined' && types.length > 0) { %>
         <ul>
             <% types.forEach(type => { %>
@@ -25,7 +26,5 @@
         </ul>
     <% } %>
 
-   
-    
 </body>
 </html>

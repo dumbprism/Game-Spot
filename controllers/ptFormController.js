@@ -1,4 +1,5 @@
 const types = [
+
     'appliances',
     'beauty',
     'books',
@@ -8,6 +9,7 @@ const types = [
     'jewellery',
     'home & kitchen',
     'toys'
+    
 ];
 
 
