@@ -4,13 +4,176 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <style>
+        body{
+            margin: 10px;
+        }
+        #header-content{
+
+            display: flex;
+            justify-content: space-between;
+            align-content: center;
+            list-style: none;
+            background-color: aquamarine;
+            padding: 20px 15px;
+            font-weight: bold;
+        }
+
+        #product-type-list{
+            list-style: number;
+        }
+        #product-type-list:hover{
+            cursor: pointer;
+        }
+        
+        #total{
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            align-content: center;
+            margin-top: 20px;
+        }
+        #total-product-types,#total-products{
+            width: 150px;
+            height: 100px;
+            background-color: rgb(244, 244, 175);
+            border-radius: 5px;
+            margin-bottom: 10px;
+            padding: 10px 10px;
+            
+        }
+        #product-table{
+            border: 1px solid black;
+            padding: 2px 2px;
+            margin-bottom: 10px;
+            
+        }
+        td{
+        border:1px solid black ;
+        padding: 10px;
+        }
+        #product-infos{
+        display: flex;
+        gap: 10px;
+        justify-content: center;
+        align-content: center;
+        margin-bottom: 20px;
+        }
+
+        #product-infos div{
+            border: 1px solid black;
+            padding: 5px 15px;
+        }
+        #buttons{
+            display: flex;
+            justify-content: center;
+            align-content: center;
+            gap: 20px;
+        }
+        #buttons button{
+            padding: 5px 10px;
+            background-color: burlywood;
+            border-radius: 5px;
+        }
+    </style>
 </head>
 <body>
 
+    <div id="header">
+        <ul id="header-content">
+            <li>Inventory Application</li>
+            <li>Product Type</li>
+            <li>Products</li>
+        </ul>
+    </div>
+
+    <div id="total">
+        <div id="total-product-types">
+            <h4>Total Product Types</h4>
+            <% if (typeof types != 'undefined' && types.length > 0){ %>
+                <h2>
+                    <%= types.length %>
+                </h2>
+
+              
+            <% } %>
+           
+        </div> 
+      
+        <div id="total-products">
+            <h4>Total Products</h4>
+            <% if (typeof products != 'undefined' && products.length > 0){ %>
+               
+                <h2><%= products.length %></h2>
+            <% } else {%>
+                <h2>0</h2>
+                <% } %>
+        </div>  
+
+    </div>
+
+   <div id="product-infos">
+
+   
+    <div id="product-table-info">
+        <h1>Products</h1>
+        <table id="product-table">
+            <tr>
+                <td>Name</td>
+                <td>Price</td>
+                <td>Type</td>
+                <td>
+                    More Options
+                </td>
+            </tr>
+            <% if (typeof products != 'undefined' && products.length > 0){ %>
+                <% products.forEach(product => { %>
+
+                    <tr id="<%=product.name %>">
+                        <td><%=product.name %></td>
+                        <td>$<%=product.price %></td>
+                        <td><%=product.type %></td>
+                        <td>
+                            <button id="edit">Edit</button>
+                            <button id="delete">Delete</button>
+
+                        </td>
+                    </tr>
+                    
+                <% }) %>
+            <% } %>
+        </table>
+    </div>
+
+   
+    <div id="product-type-info">
+        <h1>Product Type</h1>
+        <p>touch a product type to delete</p>
+        <% if (typeof types != 'undefined' && types.length > 0){ %>
+           <ul id="product-type-list">
+               <% types.forEach(type => { %>
+                <li id="type"><%= type %></li>
+                <% }) %>
+           </ul>
+           <% } %>
+                
+    </div>
+  
+   </div>
+
+   <div id="buttons">
     <button><a href="/ptForm">Add new type</a></button>
     <button><a href="/productForm">Add new product</a></button>
+</div>
 
-  
-
+<script>
+    document.querySelectorAll('#type').forEach(type => {
+        type.addEventListener('click',() => {
+            type.remove();
+            
+        })
+       
+    })
+</script>
 </body>
 </html>

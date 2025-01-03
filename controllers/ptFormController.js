@@ -19,11 +19,11 @@ async function getProductType(req,res){
 }
 
 async function postProductType(req,res){
-
+    
     const type = req.body.product_type;
     types.push(type);
-    res.render('ptform',{types : types})
+    res.redirect('/')
     
 }
 
-module.exports = {getProductType,postProductType}
+module.exports = {getProductType,postProductType,types,}

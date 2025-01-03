@@ -3,7 +3,7 @@ const {getProductForm,postProductForm} = require('../controllers/productFormCont
 
 const productForm = Router()
 
-productForm.post('/productDisplay',postProductForm);
+productForm.post('/',postProductForm);
 productForm.get('/productForm',getProductForm);
 
 
